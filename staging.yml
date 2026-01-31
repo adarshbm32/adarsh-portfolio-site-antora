@@ -51,5 +51,5 @@ ui:
   bundle:
     url: ./ui-bundle.zip
     snapshot: true
-  supplemental_files: ./supplemental-ui
+  # supplemental_files: ./supplemental-ui
 

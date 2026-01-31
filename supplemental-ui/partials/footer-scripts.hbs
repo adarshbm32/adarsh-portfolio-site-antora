@@ -1,4 +1,18 @@
 <script src="{{{uiRootPath}}}/js/site.js"></script>
+<script src="{{{uiRootPath}}}/js/05-mobile-navbar.js"></script>
+<script>
+  // Debug bootstrap: confirm navbar-burger exists and show aria state
+  document.addEventListener('DOMContentLoaded', function () {
+    var b = document.querySelector('.navbar-burger')
+    console.debug('[bootstrap] navbar-burger?', !!b, b)
+    if (b && !b.getAttribute('data-debug-bound')) {
+      b.addEventListener('click', function () { console.debug('[bootstrap] burger clicked (bootstrap listener)') })
+      b.setAttribute('data-debug-bound', 'true')
+    }
+    var nav = document.getElementById(b && b.dataset.target)
+    console.debug('[bootstrap] target nav', !!nav, nav)
+  })
+</script>
 <script src="{{{uiRootPath}}}/js/08-contact-form.js"></script>
 <script async src="{{{uiRootPath}}}/js/vendor/highlight.js"></script>
 
