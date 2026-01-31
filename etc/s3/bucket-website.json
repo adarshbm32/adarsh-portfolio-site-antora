@@ -1,0 +1,27 @@
+{
+    "IndexDocument": {
+        "Suffix": "index.html"
+    },
+    "RoutingRules": [
+        {
+            "Condition": {
+                "HttpErrorCodeReturnedEquals": "404",
+                "KeyPrefixEquals": "developer"
+            },
+            "Redirect": {
+                "HostName": "docs.couchbase.com",
+                "ReplaceKeyWith": "home/index.html"
+            }
+        },
+        {
+            "Condition": {
+                "HttpErrorCodeReturnedEquals": "404",
+                "KeyPrefixEquals": "admin"
+            },
+            "Redirect": {
+                "HostName": "docs.couchbase.com",
+                "ReplaceKeyWith": "home/index.html"
+            }
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+{{> head defaultPageTitle='Untitled'}}
+  </head>
+  <body class="article{{#with (or page.attributes.role page.role)}} {{{this}}}{{/with}}">
+{{> header}}
+
+{{#if page.home}}
+<main class="home-hero">
+  <div class="home-hero-inner">
+    <section class="hero-left">
+      <h1 class="hero-title">Adarsh BM — Technical Writers</h1>
+      <p class="hero-sub">I craft docs, API references, and UX content that make product teams faster and users happier. I focus on clarity, developer experience, and measurable outcomes.</p>
+      <div class="hero-actions">
+        <a class="button hero-cta" href="/writing/">See writing</a>
+        <a class="button hero-ghost" href="/projects/">View projects</a>
+      </div>
+    </section>
+
+    <aside class="hero-cards" aria-hidden="false">
+      <article class="card">
+        <h3 class="card-title">Featured writing</h3>
+        <ul class="card-list">
+          <li><a href="/writing/">API design: concise examples</a></li>
+          <li><a href="/writing/">Docs for complex workflows</a></li>
+          <li><a href="/writing/">Developer onboarding guide</a></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">Projects</h3>
+        <ul class="card-list">
+          <li><a href="/projects/">Doc overhaul — Analytics product</a></li>
+          <li><a href="/projects/">API reference system</a></li>
+          <li><a href="/projects/">Usability-driven content</a></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3 class="card-title">Get in touch</h3>
+        <ul class="card-list">
+          <li><a href="https://www.dropbox.com/scl/fi/ru9l4x6kuadlc0i0w3aoc/technical-writer-resume-AdarshBM.pdf?dl=1" target="_blank" rel="noopener noreferrer">Download resume</a></li>
+          <li><a href="/contact/">Contact form</a></li>
+          <li><a href="/about/">About me</a></li>
+        </ul>
+      </article>
+    </aside>
+  </div>
+</main>
+{{else}}
+  {{> body}}
+{{/if}}
+
+{{> footer}}
+  </body>
+</html>

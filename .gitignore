@@ -1,0 +1,84 @@
+# =========================
+# Antora build artifacts
+# =========================
+output/
+build/
+.cache/
+.antora/
+.antora-cache/
+public/
+preview/
+staging/
+.archive-playbooks/
+workspace/
+
+# Antora logs / validation
+xref-validator.log
+.antora-playbook-cache.yml
+
+# =========================
+# Node / NPM
+# =========================
+node_modules/
+**/node_modules/
+.npm/
+.npmrc
+package-lock.json
+
+# =========================
+# DocSearch / Algolia crawler
+# =========================
+docsearch/node_modules/
+docsearch/.cache/
+docsearch/dist/
+
+# =========================
+# Scripts / tooling
+# =========================
+scripts/node_modules/
+scripts/.npmrc
+
+# =========================
+# Kroki / diagram cache
+# =========================
+.kroki-cache/
+**/.kroki-cache/
+
+# =========================
+# IDE / OS junk
+# =========================
+.idea/
+.vscode/
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# =========================
+# Local-only playbooks & env
+# =========================
+local-antora-playbook.yml
+antora-playbook.preview.local.yml
+.env
+.env.*
+
+# =========================
+# Antora UI build artifacts
+# =========================
+supplemental-ui/build/
+supplemental-ui/dist/
+supplemental-ui/.cache/
+
+# =========================
+# Test / temp outputs
+# =========================
+test/build/
+**/*.actual
+record.json
+lab.sh
+
+# =========================
+# Misc
+# =========================
+*.log
+*.tmp
+*.bak

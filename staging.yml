@@ -1,0 +1,55 @@
+site:
+  title: Adarsh | Senior Technical Writer Portfolio
+  start_page: adarsh-tech-docs-portfolio-repo::index.adoc
+
+content:
+  sources:
+    ##  - url: ./workspace/docs-server
+    ##     branches: HEAD
+
+    - url: ./workspace/adarsh-tech-docs-portfolio-repo
+      branches: HEAD
+
+    - url: ./workspace/adarsh-learning-repo
+      branches: HEAD
+
+asciidoc:
+  attributes:
+    # Portfolio Identity
+    full-name: Adarsh BM
+    role: Senior Technical Writer
+    professional-email: adarshbm@example.com
+
+    # Section Numbering & Structure
+    sectnums: ""          # Enables section numbering (1., 1.1., etc.)
+    sectnumlevels: 3      # Sets how deep the numbering goes
+    idprefix: ""          # Tech Comm SEO: removes underscore prefix from IDs
+    idseparator: "-"      # Tech Comm SEO: uses hyphens for cleaner URLs
+    sectanchors: ""       # Adds clickable anchor links to headers
+    icons: font
+
+    # Table of Contents (Disabled)
+    toc: ~                # Explicitly disables TOC globally
+
+    # Technical Content Macros
+    experimental: ""      # Enables kbd:[] and btn:[] macros for UI docs
+
+    # Existing configurations
+    kroki-server-url: ~
+
+antora:
+  extensions:
+    - '@antora/lunr-extension'
+output:
+  dir: ./output
+  clean: true
+
+runtime:
+  fetch: true
+
+ui:
+  bundle:
+    url: ./ui-bundle.zip
+    snapshot: true
+  supplemental_files: ./supplemental-ui
+

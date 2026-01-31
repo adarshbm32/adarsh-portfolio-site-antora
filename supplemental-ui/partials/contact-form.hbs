@@ -1,0 +1,49 @@
+<!-- Contact form modal partial -->
+<div id="contact-modal" class="contact-modal" aria-hidden="true">
+  <div class="contact-modal__overlay" data-modal-close></div>
+  <div class="contact-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+    <button class="contact-modal__close" aria-label="Close" data-modal-close>✕</button>
+    <h2 id="contact-modal-title">Contact</h2>
+
+    <form class="contact-form" action="https://formspree.io/f/your-id" method="POST" data-endpoint="https://formspree.io/f/your-id" novalidate>
+      <div class="contact-form__row">
+        <label for="contact-name">Name</label>
+        <input id="contact-name" name="name" type="text" required>
+      </div>
+
+      <div class="contact-form__row">
+        <label for="contact-email">Email</label>
+        <input id="contact-email" name="email" type="email" required>
+      </div>
+
+      <div class="contact-form__row">
+        <label for="contact-subject">Subject</label>
+        <input id="contact-subject" name="subject" type="text">
+      </div>
+
+      <div class="contact-form__row">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="6" required></textarea>
+      </div>
+
+      <!-- Honeypot to reduce spam -->
+      <div style="display:none;">
+        <label for="contact-house">Do not fill this field</label>
+        <input id="contact-house" name="house" type="text" autocomplete="off">
+      </div>
+
+      <div class="contact-form__actions">
+        <button type="submit" class="button">Send</button>
+        <button type="button" class="button button--muted" data-modal-close>Cancel</button>
+      </div>
+
+      <div class="contact-form__message contact-form__message--success" role="status" aria-live="polite" hidden>
+        Thanks — your message was sent.
+      </div>
+
+      <div class="contact-form__message contact-form__message--error" role="alert" hidden>
+        Sorry — there was a problem sending your message. Please try again or email us directly.
+      </div>
+    </form>
+  </div>
+</div>

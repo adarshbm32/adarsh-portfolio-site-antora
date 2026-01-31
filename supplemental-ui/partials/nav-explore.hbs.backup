@@ -1,0 +1,50 @@
+<div class="nav-panel-explore{{#unless page.navigation}} is-active{{/unless}}" data-panel="explore">
+  {{#if page.component}}
+    <div class="context">
+      <span class="title">{{page.component.title}}</span>
+      <span class="version">{{#unless (eq page.componentVersion.displayVersion 'default')}}{{page.componentVersion.displayVersion}}{{/unless}}</span>
+    </div>
+  {{/if}}
+  <ul class="components">
+    {{!-- Below is new nav code after revamp--}}
+    <div class="home-left-nav-title" style="font-weight: bold;">About</div>
+    <div class="dropdown-category">
+      <a class="category-item"  href="/about/">About</a>
+      <a class="category-item"  href="/contact/">Contact</a>
+    </div>
+
+    <div class="home-left-nav-title" style="font-weight: bold;">Writing</div>
+    <div class="dropdown-category">
+      <a class="category-item" href="/writing/">Writing Samples</a>
+      <a class="category-item"  href="/writing/ux-writing/">UX Writing</a>
+    </div>
+
+    <div class="home-left-nav-title" style="font-weight: bold;">Projects</div>
+    <div class="dropdown-category">
+      <a class="category-item" href="/projects/">Highlighted Projects</a>
+      <a class="category-item" href="/projects/case-studies/">Case Studies</a>
+    </div>
+
+    <div class="home-left-nav-title" style="font-weight: bold;">Resources</div>
+    <div class="dropdown-category">
+      <a class="category-item" href="/blog/">Blog</a>
+      <a class="category-item" href="/resume/">Resume</a>
+    </div>
+    {{!--Old Nav this does NOT display: none but can still be indexed in the DOM--}}
+    {{#each (rearrange site.components 'name' page.attributes.component-order)}}
+    <li class="component{{#if (eq this @root.page.component)}} is-current{{/if}}">
+      <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>
+      {{#if (or ./versions.[1] (ne ./versions.[0].displayVersion 'default'))}}
+        <ul class="versions">
+          {{#each ./versions}}
+            <li class="version
+            {{~#if (and (eq .. @root.page.component) (eq this @root.page.componentVersion))}} is-current{{/if~}}
+              {{~#if (eq this ../latest)}} is-latest{{/if}}">
+              <a href="{{{relativize ./url}}}">{{./displayVersion}}</a>
+            </li>
+          {{/each}}
+        </ul>
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
