@@ -39,7 +39,14 @@ asciidoc:
 
 antora:
   extensions:
-    - '@antora/lunr-extension'
+    - require: '@antora/lunr-extension'
+      index_latest_only: true
+      languages: [en]
+      snippet_length: 100
+      index_by_heading: true
+    - require: './extensions/search-index-customizer.js'
+    - require: './extensions/lunr-enhancements-extension.js'
+
 output:
   dir: ./output
   clean: true
@@ -51,5 +58,5 @@ ui:
   bundle:
     url: ./ui-bundle.zip
     snapshot: true
-  # supplemental_files: ./supplemental-ui
+  supplemental_files: ./supplemental-ui
 

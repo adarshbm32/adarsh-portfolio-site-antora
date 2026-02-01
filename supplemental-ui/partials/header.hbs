@@ -1,2 +1,110 @@
-{{> header-scripts}}
-{{> header-content}}
+<header class="header">
+  <nav class="navbar navbar--bubbles-1">
+    <div class="navbar-brand hide-for-print">
+
+      <!-- Current component home -->
+      <a class="navbar-item"
+        href="{{{or site.url siteRootPath}}}">
+        <strong>{{site.title}}</strong>
+      </a>
+
+      <button class="navbar-burger"
+              data-target="topbar-nav"
+              aria-expanded="false"
+              aria-controls="topbar-nav"
+              aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu" aria-hidden="true">
+      <div class="navbar-end">
+
+        {{#if env.SITE_SEARCH_PROVIDER}}
+          {{#unless page.home}}
+            <div class="navbar-item search hide-for-print">
+              <div id="search-field" class="field has-filter">
+                <input id="search-input" class="query" type="text" placeholder="Search the docs">
+                <label class="filter checkbox">
+                  <input type="checkbox" data-facet-filter="component:{{page.component.name}}">
+                  In this project
+                </label>
+              </div>
+            </div>
+          {{/unless}}
+        {{/if}}
+
+        <!-- ROOT pages in current component -->
+        <a class="navbar-item" href="{{{or site.url siteRootPath}}}">Home</a>
+        {{#each site.components}}
+          {{#if (eq name 'adarsh-tech-docs-portfolio-repo')}}
+            {{#with (or @root.page.version (get (get this 'latestVersion') 'version'))}}
+              <a class="navbar-item" href="{{{relativize (concat '/' ../name '/' this '/works-samples/')}}}">Work Samples</a>
+              <a class="navbar-item" href="{{{relativize (concat '/' ../name '/' this '/resume.html')}}}">Resume</a>
+            {{/with}}
+          {{/if}}
+        {{/each}}
+
+        <!-- Resources dropdown -->
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Resources</a>
+          <div class="navbar-dropdown">
+
+            {{#each site.components}}
+              {{#if (ne name ../page.component.name)}}
+                <a class="navbar-item"
+                   href="{{{relativize url}}}">
+                  {{title}}
+                </a>
+              {{/if}}
+            {{/each}}
+
+            <a class="navbar-item"
+              href="{{{concat siteRootPath 'blog/'}}}">
+              Blog
+            </a>
+
+            <a class="navbar-item"
+               href="https://github.com/adarshbm32"
+               target="_blank"
+               rel="noopener noreferrer">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Resume from Antora assets -->
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Resume</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item"
+               href="{{{relativize '/assets/resume/AdarshBM-Resume.pdf'}}}"
+               target="_blank">
+              View Resume
+            </a>
+            <a class="navbar-item"
+               href="{{{relativize '/assets/resume/AdarshBM-Resume.pdf'}}}"
+               download>
+              Download PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- GitHub CTA -->
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary"
+               href="https://github.com/adarshbm32"
+               target="_blank"
+               rel="noopener noreferrer">
+              GitHub
+            </a>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>

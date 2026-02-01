@@ -323,6 +323,7 @@ asciidoc:
 ui:
   bundle:
     url: https://github.com/couchbase/docs-ui/releases/download/prod-218/ui-bundle.zip
+  supplemental_files: ./supplemental-ui
 output:
   dir: ./public
 runtime:
