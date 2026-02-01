@@ -1,0 +1,47 @@
+site:
+  title: Adarsh | Senior Technical Writer Portfolio
+  start_page: adarsh-tech-docs-portfolio-repo::index.adoc
+
+content:
+  sources:
+    - url: ./workspace/adarsh-tech-docs-portfolio-repo
+      branches: HEAD
+    - url: ./workspace/adarsh-learning-repo
+      branches: HEAD
+
+asciidoc:
+  attributes:
+    full-name: Adarsh BM
+    role: Senior Technical Writer
+    professional-email: adarshbm@example.com
+    sectnums: ""
+    sectnumlevels: 3
+    idprefix: ""
+    idseparator: "-"
+    sectanchors: ""
+    icons: font
+    toc: ~
+    experimental: ""
+
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+      index_latest_only: true
+      languages: [en]
+      snippet_length: 250
+      index_by_heading: true
+    - require: './extensions/search-index-customizer.js'
+    - require: './extensions/lunr-enhancements-extension.js'
+
+output:
+  dir: ./output
+  clean: true
+
+runtime:
+  fetch: true
+
+ui:
+  bundle:
+    url: ./ui-bundle.zip
+    snapshot: true
+  supplemental_files: ./supplemental-ui

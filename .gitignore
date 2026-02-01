@@ -56,7 +56,6 @@ Thumbs.db
 # =========================
 # Local-only playbooks & env
 # =========================
-local-antora-playbook.yml
 antora-playbook.preview.local.yml
 .env
 .env.*
