@@ -6,8 +6,7 @@ content:
   sources:
     - url: ./workspace/adarsh-tech-docs-portfolio-repo
       branches: HEAD
-    - url: ./workspace/adarsh-learning-repo
-      branches: HEAD
+
 
 asciidoc:
   attributes:

@@ -2,9 +2,8 @@
     <nav class="navbar navbar--bubbles-1">
         <div class="navbar-brand hide-for-print">
 
-            <!-- Current component home -->
-            <a class="navbar-item"
-               href="{{{or site.url siteRootPath}}}">
+            <!-- Site title -->
+            <a class="navbar-item" href="{{{or site.url siteRootPath}}}">
                 <strong>{{site.title}}</strong>
             </a>
 
@@ -36,13 +35,17 @@
                     {{/unless}}
                 {{/if}}
 
-                <!-- ROOT pages in current component -->
+                <!-- Home -->
                 <a class="navbar-item" href="{{{or site.url siteRootPath}}}">Home</a>
+
+                <!-- Work Samples -->
                 {{#each site.components}}
                     {{#if (eq name 'adarsh-tech-docs-portfolio-repo')}}
                         {{#with (or @root.page.version (get (get this 'latestVersion') 'version'))}}
-                            <a class="navbar-item" href="{{{relativize (concat '/' ../name '/' this '/works-samples/')}}}">Work Samples</a>
-                            <a class="navbar-item" href="{{{relativize (concat '/' ../name '/' this '/resume.html')}}}">Resume</a>
+                            <a class="navbar-item"
+                               href="{{{relativize (concat '/' ../name '/' this '/works-samples/')}}}">
+                                Work Samples
+                            </a>
                         {{/with}}
                     {{/if}}
                 {{/each}}
@@ -54,15 +57,13 @@
 
                         {{#each site.components}}
                             {{#if (ne name ../page.component.name)}}
-                                <a class="navbar-item"
-                                   href="{{{relativize url}}}">
+                                <a class="navbar-item" href="{{{relativize url}}}">
                                     {{title}}
                                 </a>
                             {{/if}}
                         {{/each}}
 
-                        <a class="navbar-item"
-                           href="{{{concat siteRootPath 'blog/'}}}">
+                        <a class="navbar-item" href="{{{concat siteRootPath 'blog/'}}}">
                             Blog
                         </a>
 
@@ -75,24 +76,29 @@
                     </div>
                 </div>
 
-                <!-- Resume from Antora assets -->
+                <!-- Resume dropdown -->
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">Resume</a>
                     <div class="navbar-dropdown">
+
+                        <!-- Resume HTML page -->
                         <a class="navbar-item"
-                           href="{{{relativize '/assets/resume/AdarshBM-Resume.pdf'}}}"
-                           target="_blank">
+                           href="{{{siteRootPath}}}/adarsh-tech-docs-portfolio-repo/{{page.version}}/resume.html">
                             View Resume
                         </a>
+
+                        <!-- Resume PDF -->
                         <a class="navbar-item"
-                           href="{{{relativize '/assets/resume/AdarshBM-Resume.pdf'}}}"
+                           href="{{{relativize (concat '/_/assets/resume/resume.pdf')}}}"
                            download>
                             Download PDF
                         </a>
+
                     </div>
                 </div>
 
-                <!-- GitHub CTA -->
+
+                <!-- GitHub button -->
                 <div class="navbar-item">
           <span class="control">
             <a class="button is-primary"
