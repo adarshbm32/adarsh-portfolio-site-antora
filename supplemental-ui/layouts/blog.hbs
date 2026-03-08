@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+{{> head defaultPageTitle='Untitled'}}
+  </head>
+  <body class="article blog{{#with (or page.attributes.role page.role)}} {{{this}}}{{/with}}">
+{{> header}}
+    <div class="body blog-body">
+      <main class="article blog">
+{{> toolbar}}
+        <div class="content">
+{{> blog-article}}
+        </div>
+      </main>
+
+    </div>
+{{> footer}}
+  </body>
+</html>

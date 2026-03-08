@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head defaultPageTitle='Untitled'}}
+</head>
+<body class="article{{#with (or page.attributes.role page.role)}} {{{this}}}{{/with}}">
+{{> header}}
+
+{{#if page.home}}
+    <main class="home-hero">
+        <div class="home-hero-inner">
+            <section class="hero-left">
+                <h1 class="hero-title">Adarsh BM — Technical Writer</h1>
+                <p class="hero-sub">
+                    Seasoned Technical Writer with over 10 years of experience creating clear, user-focused documentation for software products. Skilled in Docs-as-Code, content migration, and organizing documentation. Experienced in writing user manuals, setup guides, SOPs, tutorials, and release notes while following style guides and documentation standards. Collaborates closely with developers and subject matter experts in both remote and on-site teams.
+                </p>
+                <div class="hero-actions">
+                    <a class="button hero-cta" href="{{{siteRootPath}}}/adarsh-tech-docs-portfolio-repo/{{page.version}}/works-samples/index.html">See writing</a>
+                    <a class="button hero-ghost" href="#">View projects</a>
+                </div>
+            </section>
+
+            <aside class="hero-cards" aria-hidden="false">
+
+                <!-- Featured Writing -->
+                <article class="card">
+                    <h3 class="card-title">Featured writing</h3>
+                    <ul class="card-list">
+
+                        <li>
+                            <a href="{{{siteRootPath}}}/adarsh-tech-docs-portfolio-repo/{{page.version}}/works-samples/migration-robohelp-to-antora.html">
+                                RoboHelp to Antora Migration Guide
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{{siteRootPath}}}/adarsh-tech-docs-portfolio-repo/{{page.version}}/works-samples/sop-asset-commissioning.html">
+                                Commission New Asset for Field Use
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{{siteRootPath}}}/adarsh-tech-docs-portfolio-repo/{{page.version}}/works-samples/sop-asset-compliance-audit.html">
+                                Asset Compliance Audit SOP
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{{siteRootPath}}}/adarsh-tech-docs-portfolio-repo/{{page.version}}/works-samples/setup-pos-payment-terminal.html">
+                                POS Payment Terminal Setup Guide
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{{siteRootPath}}}/adarsh-tech-docs-portfolio-repo/{{page.version}}/works-samples/setup-kds-journey.html">
+                                KDS Journey Setup Guide
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{{siteRootPath}}}/adarsh-tech-docs-portfolio-repo/{{page.version}}/works-samples/user-guide-performance-management.html">
+                                Performance Management User Guide
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{{siteRootPath}}}/adarsh-tech-docs-portfolio-repo/{{page.version}}/works-samples/user-guide-ess-mobile.html">
+                                ESS Mobile User Guide
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{{siteRootPath}}}/adarsh-tech-docs-portfolio-repo/{{page.version}}/works-samples/developer-onboarding.html">
+                                Developer Onboarding Guide
+                            </a>
+                        </li>
+
+                    </ul>
+                </article>
+
+                <!-- Certifications -->
+                <article class="card">
+                    <h3 class="card-title">Certifications</h3>
+                    <ul class="card-list">
+                        <li><a href="#">Google Technical Support Fundamentals</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                    </ul>
+                </article>
+
+                <!-- Contact -->
+                <article class="card">
+                    <h3 class="card-title">Get in touch</h3>
+                    <ul class="card-list">
+                        <li>
+                            <a href="{{{siteRootPath}}}/adarsh-tech-docs-portfolio-repo/{{page.version}}/adarsh-technical-writer-resume.html" target="_blank" rel="noopener noreferrer">
+                                Resume
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact-modal" class="contact-trigger" data-contact-target="#contact-modal">
+                                Contact form
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+
+            </aside>
+        </div>
+    </main>
+{{else}}
+    {{> body}}
+{{/if}}
+
+{{> footer}}
+</body>
+</html>

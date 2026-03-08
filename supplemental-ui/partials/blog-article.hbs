@@ -1,0 +1,52 @@
+<div class="blog-wrapper">
+  <article class="doc blog-post">
+    <section class="section-blog-post">
+      <header class="blog-header">
+        <div class="blog-meta">
+{{#with page.attributes.author}}
+          <div class="blog-author">By <strong>{{this}}</strong></div>
+{{/with}}
+{{#with (or page.attributes.revdate page.attributes.date)}}
+          <time class="blog-date" datetime="{{this}}">{{this}}</time>
+{{/with}}
+{{#with (get page.attributes 'read-time')}}
+          <span class="blog-read-time">{{this}}</span>
+{{/with}}
+        </div>
+        <h1 class="blog-title">{{{page.title}}}</h1>
+
+{{#with (or (get page.attributes 'page-summary') page.attributes.description)}}
+        <p class="blog-subtitle">{{this}}</p>
+{{/with}}
+      </header>
+
+{{#with (or (get page.attributes 'page-cover') (get page.attributes 'page-image'))}}
+      <figure class="blog-cover">
+        <img src="{{this}}" alt="{{page.title}}">
+      </figure>
+{{/with}}
+
+{{#with (or (get page.attributes 'page-tags') page.attributes.tags)}}
+      <div class="blog-tags-section">
+        <div class="blog-tags">
+{{#each (split this ',')}}
+          <a href="/blog/tags/#{{slugify this}}" class="blog-tag">{{this}}</a>
+{{/each}}
+        </div>
+      </div>
+{{/with}}
+    </section>
+
+    <section class="blog-content-section">
+      <div class="blog-content">
+        {{{page.contents}}}
+      </div>
+
+      <footer class="blog-footer">
+        {{> pagination}}
+      </footer>
+    </section>
+  </article>
+
+  {{> toc}}
+</div>

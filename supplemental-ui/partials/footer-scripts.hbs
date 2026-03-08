@@ -1,0 +1,41 @@
+<script src="{{{uiRootPath}}}/js/site.js"></script>
+<script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script defer src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script defer src="{{{uiRootPath}}}/js/vendor/datatables.js"></script>
+<!-- Medium Zoom Library for Image Zoom Feature -->
+<script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+<!-- Image Zoom Configuration -->
+<script defer src="{{{uiRootPath}}}/js/vendor/image-zoom.js"></script>
+<script>
+  // Debug bootstrap: confirm navbar-burger exists and show aria state
+  document.addEventListener('DOMContentLoaded', function () {
+    var b = document.querySelector('.navbar-burger')
+    console.debug('[bootstrap] navbar-burger?', !!b, b)
+    if (b && !b.getAttribute('data-debug-bound')) {
+      b.addEventListener('click', function () { console.debug('[bootstrap] burger clicked (bootstrap listener)') })
+      b.setAttribute('data-debug-bound', 'true')
+    }
+    var nav = document.getElementById(b && b.dataset.target)
+    console.debug('[bootstrap] target nav', !!nav, nav)
+  })
+</script>
+<script async src="{{{uiRootPath}}}/js/vendor/highlight.js"></script>
+
+{{!-- {{#with (resolvePage page.relativeSrcPath model=false)}}
+{{#unless (eq ./asciidoc.attributes.stem undefined)}} --}}
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]], ignoreClass: "nostem|nolatexmath" },
+  asciimath2jax: { delimiters: [["\\$", "\\$"]], ignoreClass: "nostem|noasciimath" },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+{{!-- {{/unless}}
+{{/with}} --}}
+
+
+{{#if env.SITE_SEARCH_PROVIDER}}
+{{> search-scripts}}
+{{/if}}

@@ -1,13 +1,12 @@
 site:
   title: Adarsh | Senior Technical Writer Portfolio
-  url: https://adarshbm32.gitlab.io/learn-site
   start_page: adarsh-tech-docs-portfolio-repo::index.adoc
+  url: https://adarshbm32.gitlab.io/learn-site
 
 content:
   sources:
     - url: ./workspace/adarsh-tech-docs-portfolio-repo
       branches: HEAD
-
 
 asciidoc:
   attributes:
@@ -22,6 +21,12 @@ asciidoc:
     icons: font
     toc: ~
     experimental: ""
+    allow-uri-read: ""
+
+  extensions:
+    - asciidoctor-kroki
+    - '@asciidoctor/tabs'
+    - asciidoctor-external-callout
 
 antora:
   extensions:
@@ -30,15 +35,13 @@ antora:
       languages: [en]
       snippet_length: 250
       index_by_heading: true
-    - require: './extensions/search-index-customizer.js'
-    - require: './extensions/lunr-enhancements-extension.js'
 
-output:
-  dir: ./public
-  clean: true
+    - require: '@antora/pdf-extension'
+    - require: '@antora/collector-extension'
 
-runtime:
-  fetch: true
+    # Your custom search behavior
+    - require: ./extensions/search-index-customizer.js
+    - require: ./extensions/lunr-enhancements-extension.js
 
 ui:
   bundle:
@@ -46,3 +49,9 @@ ui:
     snapshot: true
   supplemental_files: ./supplemental-ui
 
+output:
+  dir: ./build/site
+  clean: true
+
+runtime:
+  fetch: true
